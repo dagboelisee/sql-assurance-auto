@@ -1,0 +1,22 @@
+
+=== Q1. Journal du nettoyage
+regle | description                                                                            | lignes_touchees
+------+----------------------------------------------------------------------------------------+----------------
+R1    | Exposition plafonnée à 1 an (contrats touchés)                                         |            1224
+R2a   | Contrats dont ClaimNb annonce des sinistres sans aucun montant (sinistres comptés à 0) |            9116
+R2b   | Sinistres déclarés dans ClaimNb mais absents du détail (ignorés)                       |            9657
+R2c   | Contrats dont le nombre déclaré diffère du détail (autres cas)                         |               1
+R3    | Sinistres sans contrat exclus                                                          |             195
+R4    | Montants de sinistres plafonnés à 100 000                                              |              41
+
+=== Q2. Contrôle : aucun contrat perdu, exposition totale et coûts avant et après
+contrats_avant | contrats_apres | sinistres_avant | sinistres_apres | exposition_avant | exposition_apres | cout_avant | cout_apres | cout_plafonne
+---------------+----------------+-----------------+-----------------+------------------+------------------+------------+------------+--------------
+        678013 |         678013 |           26639 |           26444 |          358 499 |          358 360 | 60 697 931 | 59 909 217 |    49 302 196
+
+=== Q3. Nombre total de sinistres : déclaré dans ClaimNb contre compté dans le détail
+sinistres_declares_claimnb | sinistres_dans_le_detail
+---------------------------+-------------------------
+                     36102 |                    26444
+
+Terminé.
