@@ -1,0 +1,130 @@
+
+=== Q1. Concentration des coûts : les 10 % de sinistres les plus chers
+decile | nb_sinistres | montant_min | montant_max | part_du_cout_pct | part_cumulee_pct
+-------+--------------+-------------+-------------+------------------+-----------------
+     1 |         2645 |       2 768 |     100 000 |             51.3 |             51.3
+     2 |         2645 |       1 461 |       2 768 |             10.7 |               62
+     3 |         2645 |       1 204 |       1 461 |              6.8 |             68.8
+     4 |         2645 |       1 204 |       1 204 |              6.5 |             75.3
+     5 |         2644 |       1 172 |       1 204 |              6.3 |             81.7
+     6 |         2644 |       1 128 |       1 172 |              6.1 |             87.7
+     7 |         2644 |         938 |       1 128 |              5.9 |             93.6
+     8 |         2644 |         564 |         938 |              3.8 |             97.4
+     9 |         2644 |         197 |         564 |              2.1 |             99.5
+    10 |         2644 |           1 |         197 |              0.5 |              100
+
+=== Q2. Classement des régions par prime pure, avec écart à la moyenne du portefeuille
+rang | region                      | nb_contrats | frequence_pour_100 | cout_moyen | prime_pure | indice_base_100
+-----+-----------------------------+-------------+--------------------+------------+------------+----------------
+   1 | Corse                       |        4516 |              13.99 |      2 755 |      385.4 |             205
+   2 | Champagne-Ardenne           |        3026 |              13.29 |      2 755 |        366 |             195
+   3 | Provence-Alpes-Cotes-D'Azur |       79315 |              10.93 |      2 172 |      237.3 |             127
+   4 | Picardie                    |        7994 |              12.29 |      1 861 |      228.7 |             122
+   5 | Ile-de-France               |       69791 |              13.17 |      1 713 |      225.7 |             120
+   6 | Franche-Comte               |        1326 |              10.11 |      2 014 |      203.6 |             109
+   7 | Rhone-Alpes                 |       84752 |               11.1 |      1 829 |        203 |             108
+   8 | Languedoc-Roussillon        |       35805 |              10.26 |      1 883 |      193.1 |             103
+   9 | Basse-Normandie             |       10893 |               9.52 |      2 009 |      191.1 |             102
+  10 | Bourgogne                   |       10492 |              10.17 |      1 844 |      187.6 |             100
+  11 | Bretagne                    |       42122 |               9.74 |      1 907 |      185.6 |              99
+  12 | Centre                      |      160601 |               8.95 |      1 926 |      172.4 |              92
+  13 | Aquitaine                   |       31329 |               9.42 |      1 816 |        171 |              91
+  14 | Nord-Pas-de-Calais          |       40275 |               9.12 |      1 813 |      165.3 |              88
+  15 | Limousin                    |        4567 |              10.81 |      1 423 |      153.8 |              82
+  16 | Pays-de-la-Loire            |       38751 |               9.17 |      1 631 |      149.5 |              80
+  17 | Alsace                      |        2200 |                 11 |      1 320 |      145.2 |              77
+  18 | Midi-Pyrenees               |       17141 |               9.81 |      1 462 |      143.4 |              76
+  19 | Haute-Normandie             |        8784 |               9.54 |      1 489 |        142 |              76
+  20 | Poitou-Charentes            |       19046 |               8.67 |      1 631 |      141.5 |              75
+  21 | Auvergne                    |        5287 |               8.14 |      1 305 |      106.2 |              57
+
+=== Q3. Tableau croisé : fréquence (pour 100 années) par âge du conducteur x bonus-malus
+tranche_age       | bm_50 | bm_51_99 | bm_100_et_plus
+------------------+-------+----------+---------------
+1. 18-24 ans      |  12.1 |     12.7 |           37.3
+2. 25-34 ans      |   5.3 |      9.7 |           27.4
+3. 35-44 ans      |   7.2 |       12 |           27.2
+4. 45-54 ans      |   9.1 |     15.6 |           28.9
+5. 55-64 ans      |   7.7 |       15 |           31.9
+6. 65-74 ans      |     8 |     17.1 |           31.4
+7. 75 ans et plus |   8.3 |     19.4 |             46
+
+=== Q4. Fréquence par âge exact du conducteur, lissée par une moyenne mobile sur 5 ans d'âge
+age_conducteur | exposition | frequence_brute | frequence_lissee
+---------------+------------+-----------------+-----------------
+            18 |        211 |            30.9 |             24.9
+            20 |      1 461 |            22.9 |             21.5
+            22 |      2 224 |            19.3 |             18.1
+            25 |      3 738 |            12.8 |             13.4
+            30 |      7 130 |             9.4 |              9.4
+            40 |      8 707 |             9.7 |              9.2
+            50 |      9 162 |            10.6 |             10.6
+            60 |      4 981 |             8.9 |              9.1
+            70 |      3 225 |             8.9 |              9.8
+            80 |      1 382 |            10.7 |             10.6
+
+=== Q5. Variation de la fréquence d'un âge de véhicule à l'autre (LAG)
+age_vehicule | exposition | frequence_pour_100 | variation_vs_annee_precedente
+-------------+------------+--------------------+------------------------------
+           0 |     16 696 |              31.17 |                              
+           1 |     32 741 |               8.95 |                        -22.22
+           2 |     29 700 |               9.32 |                          0.37
+           3 |     26 076 |                8.9 |                         -0.42
+           4 |     23 751 |               9.61 |                          0.71
+           5 |     22 194 |               9.65 |                          0.04
+           6 |     20 784 |              10.15 |                          0.51
+           7 |     19 245 |              10.39 |                          0.24
+           8 |     19 227 |               9.53 |                         -0.85
+           9 |     18 776 |               9.71 |                          0.18
+          10 |     20 943 |                9.9 |                          0.19
+          11 |     17 547 |               9.49 |                         -0.41
+          12 |     17 295 |               9.21 |                         -0.28
+
+=== Q6. Piège de l'exposition courte : la fréquence annualisée explose quand l'exposition est courte
+duree_exposition   | nb_contrats | exposition | frequence_pour_100 | contrats_avec_sinistre_pct
+-------------------+-------------+------------+--------------------+---------------------------
+1. moins de 0,1 an |      121553 |      6 926 |               45.3 |                       2.45
+2. 0,1 à 0,25 an   |       94843 |     16 435 |               22.4 |                       3.68
+3. 0,25 à 0,5 an   |      125221 |     46 744 |               13.1 |                       4.59
+4. 0,5 à 1 an      |      167047 |    118 906 |                9.5 |                       6.33
+5. 1 an ou plus    |      169349 |    169 349 |                  7 |                       6.65
+
+=== Q7. Même analyse en ne gardant que les contrats d'au moins 6 mois :
+tranche_age_vehicule | nb_contrats | frequence_pour_100
+---------------------+-------------+-------------------
+1. Neuf (0 an)       |       13516 |              16.08
+2. 1 à 4 ans         |      106013 |               8.19
+3. 5 à 9 ans         |       95277 |               8.46
+4. 10 à 14 ans       |       81146 |                7.5
+5. 15 ans et plus    |       40444 |               5.49
+
+=== Q8. Les marques : classement avec un seuil d'exposition minimal (HAVING)
+marque | nb_contrats | exposition | frequence_pour_100 | cout_moyen | rang_frequence
+-------+-------------+------------+--------------------+------------+---------------
+B12    |      166024 |     64 802 |              13.67 |      1 969 |              1
+B11    |       13585 |      6 883 |              10.47 |      2 262 |              2
+B5     |       34753 |     19 984 |              10.11 |      1 746 |              3
+B3     |       53395 |     28 576 |               9.86 |      1 907 |              4
+B13    |       12178 |      6 768 |               9.59 |      2 071 |              5
+B4     |       25179 |     13 770 |               9.53 |      1 892 |              6
+B6     |       28548 |     15 677 |               9.33 |      1 564 |              7
+B1     |      162736 |     95 315 |               9.06 |      1 810 |              8
+B10    |       17707 |      9 490 |               9.04 |      1 955 |              9
+B2     |      159861 |     94 824 |               9.02 |      1 857 |             10
+
+=== Q9. Contrats à risque : conducteurs de moins de 25 ans avec malus ou bonus-malus neutre,
+groupe                     | nb_contrats | part_contrats_pct | frequence_pour_100 | part_du_cout_pct
+---------------------------+-------------+-------------------+--------------------+-----------------
+Moins de 25 ans, BM >= 100 |        9564 |               1.4 |               37.3 |              5.7
+Reste du portefeuille      |      668449 |              98.6 |                9.8 |             94.3
+
+=== Q10. Contrats déclarant des sinistres mais sans montant (règle R5) :
+tranche_age_vehicule | sinistres_declares | sans_montant | part_sans_montant_pct
+---------------------+--------------------+--------------+----------------------
+1. Neuf (0 an)       |               5205 |         4024 |                  77.3
+2. 1 à 4 ans         |              10301 |         2068 |                  20.1
+3. 5 à 9 ans         |               9906 |         1863 |                  18.8
+4. 10 à 14 ans       |               7726 |         1269 |                  16.4
+5. 15 ans et plus    |               2918 |          426 |                  14.6
+
+Terminé.

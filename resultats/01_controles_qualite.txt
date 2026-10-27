@@ -1,0 +1,72 @@
+
+=== Q1. Volume des deux tables
+table_source   | nb_lignes
+---------------+----------
+contrats_brut  |    678013
+sinistres_brut |     26639
+
+=== Q2. Clé unique : un contrat ne doit apparaître qu'une fois dans contrats_brut
+contrats_en_double
+------------------
+                 0
+
+=== Q3. Valeurs manquantes dans chaque colonne de contrats_brut
+idpol_null | claimnb_null | exposure_null | vehpower_null | vehage_null | drivage_null | bonusmalus_null | vehbrand_null | vehgas_null | area_null | density_null | region_null
+-----------+--------------+---------------+---------------+-------------+--------------+-----------------+---------------+-------------+-----------+--------------+------------
+         0 |            0 |             0 |             0 |           0 |            0 |               0 |             0 |           0 |         0 |            0 |           0
+
+=== Q4. Exposition : une année complète vaut 1, donc toute valeur supérieure est suspecte
+exposition_min | exposition_max | contrats_exposition_sup_1 | exposition_totale_annees
+---------------+----------------+---------------------------+-------------------------
+        0.0027 |           2.01 |                      1224 |                  358 499
+
+=== Q5. Nombre de sinistres déclarés par contrat (distribution)
+nb_sinistres | nb_contrats | pourcentage
+-------------+-------------+------------
+           0 |      643953 |      94.976
+           1 |       32178 |       4.746
+           2 |        1784 |       0.263
+           3 |          82 |       0.012
+           4 |           7 |       0.001
+           5 |           2 |           0
+           6 |           1 |           0
+           8 |           1 |           0
+           9 |           1 |           0
+          11 |           3 |           0
+          16 |           1 |           0
+
+=== Q6. Bornes des variables explicatives (âge du véhicule, du conducteur, bonus-malus)
+age_vehicule_min | age_vehicule_max | vehicules_plus_30_ans | age_conducteur_min | age_conducteur_max | bonus_malus_min | bonus_malus_max | puissance_min | puissance_max | densite_min | densite_max
+-----------------+------------------+-----------------------+--------------------+--------------------+-----------------+-----------------+---------------+---------------+-------------+------------
+               0 |              100 |                  1116 |                 18 |                100 |              50 |             230 |             4 |            15 |           1 |       27000
+
+=== Q7. Sinistres : montants (minimum, maximum, grands sinistres)
+nb_sinistres | montant_min | montant_max  | sinistres_100k_et_plus | sinistres_1m_et_plus | montant_total
+-------------+-------------+--------------+------------------------+----------------------+--------------
+       26639 |           1 | 4 075 400.56 |                     42 |                    3 |    60 697 931
+
+=== Q8. Sinistres sans contrat correspondant (anti-jointure)
+sinistres_orphelins | contrats_inconnus_distincts
+--------------------+----------------------------
+                195 |                           6
+
+=== Q9. Cohérence entre le nombre de sinistres déclaré (ClaimNb) et le détail disponible
+declare_sans_detail | detail_sans_declaration | nombre_different | coherents | contrats_avec_sinistre
+--------------------+-------------------------+------------------+-----------+-----------------------
+               9116 |                       0 |                1 |     24943 |                  34060
+
+=== Q10. Sinistres de même contrat et même montant (doublons possibles ou montants forfaitaires)
+groupes_idpol_montant_repetes | lignes_concernees
+------------------------------+------------------
+                          241 |               496
+
+=== Q11. Montants les plus répétés dans les sinistres (forfaits ?)
+montant  | nb_sinistres
+---------+-------------
+   1 204 |         4792
+1 128.12 |         3056
+   1 172 |         2072
+   1 128 |          831
+     602 |          433
+
+Terminé.
